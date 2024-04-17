@@ -51,6 +51,18 @@ class MathController < ApplicationController
    render ({ :template => "math_templates/payment_result"})
   end
 
+  def random
+    render ({ :template => "math_templates/random"})
+  end
+
+  def random_result
+    @num1 = params.fetch("user_min").to_f
+    @num2 = params.fetch("user_max").to_f
+
+    @results = rand(@num1 .. @num2)
+
+    render ({ :template => "math_templates/random_result"})
+  end
 
 
 end
